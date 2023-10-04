@@ -1,12 +1,13 @@
 from tkinter import *
 
 w = Tk()
-w.title('string theory')
+w.title('student interface')
 w.geometry('900x600')
 
 # event handlers
-def onclick():
+def onquery():
   inp = t.get()
+  t.delete(0, END)
   o.configure(text=inp)
 
 
@@ -19,8 +20,8 @@ l.grid(column=0, row=0)
 # text input
 t = Entry(w, width=16, font=f0)
 t.grid(column=1, row=0)
-# button
-b = Button(w, text='query', font=f0, command=onclick)
+# buttons
+b = Button(w, text='query', font=f0, command=onquery)
 b.grid(column=0, row=1)
 # display label
 o = Label(w, text='', font=f0)
