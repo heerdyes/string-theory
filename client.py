@@ -26,6 +26,9 @@ b.grid(column=0, row=1)
 o = Label(w, text='', font=f0)
 o.grid(column=0, row=2)
 
+# focus on the entry field
+t.focus()
+
 # event loop
 w.mainloop()
 
