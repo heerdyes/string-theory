@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import request
-import time
+import dbinit
 
 srv = Flask(__name__)
 
@@ -14,8 +14,14 @@ def getstudents():
 
 @srv.route('/api/addstudent', methods=['POST'])
 def addstudent():
-  print(request.get_json())
+  st = request.get_json()
+  print(st)
+  nm = st.get('name')
+  ph = st.get('phnum')
+  pl = st.get('proglang')
+  jd = st.get('joindate')
   # insert into db by calling dbinit
+  dbinit.insertstudent(nm, ph, pl, jd)
   return {'data': [], 'success': True, 'error': ''}
 
 @srv.route('/api/delstudent/<int:stid>', methods=['DELETE'])
