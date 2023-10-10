@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+import time
 
 srv = Flask(__name__)
 
@@ -14,6 +15,7 @@ def getstudents():
 @srv.route('/api/addstudent', methods=['POST'])
 def addstudent():
   print(request.get_json())
+  # insert into db by calling dbinit
   return {'data': [], 'success': True, 'error': ''}
 
 @srv.route('/api/delstudent/<int:stid>', methods=['DELETE'])
